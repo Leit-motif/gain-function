@@ -1,0 +1,174 @@
+Overview
+
+GainFunction is a mobile Android application that helps users efficiently log weightlifting workouts during the session. Designed for fast, mid-workout usage, it allows users to select or create templates, record exercises with detailed metrics, and review historical progress — all offline. This tool is ideal for individuals who train regularly and want to track progress without distractions or delays.
+
+Core Features
+
+Workout Logging
+
+What it does: Records sets, reps, weight used, rest times, and notes per exercise during an active workout.
+
+Why it's important: Enables in-the-moment tracking to ensure accuracy and promote consistency in training.
+
+How it works: Users select a template or start a manual session, then log each set with quick taps. Default rest timer (2 mins) helps pace workouts.
+
+Workout Templates
+
+What it does: Allows creation and customization of named workout templates (e.g., "Upper Body").
+
+Why it's important: Reduces time spent setting up sessions by providing structured routines.
+
+How it works: Users build/edit templates with exercises pulled from a preloaded list or custom entries, with default sets/reps.
+
+Workout History
+
+What it does: Stores all workouts locally by date with complete exercise logs.
+
+Why it's important: Helps users track long-term progress and stay accountable.
+
+How it works: Each workout is saved automatically and can be browsed chronologically or by exercise.
+
+Local-Only Data Storage
+
+What it does: Keeps all workout data on-device with no login.
+
+Why it's important: Ensures privacy, simplicity, and offline access.
+
+How it works: Uses a local database such as SQLite or Room for persistence.
+
+User Experience
+
+User Personas
+
+Focused Lifters: Individuals who train with intent and want zero distractions.
+
+Template Builders: Users who follow specific splits and want quick setup.
+
+Progress Trackers: Users interested in long-term trends and performance data.
+
+Key User Flows
+
+Start Workout → Choose template or manual → Log sets → Auto-save.
+
+Build/Edit Template → Add/remove exercises → Set defaults.
+
+View History → Filter by date or exercise → Review past logs.
+
+UI/UX Considerations
+
+Tap-friendly interface for in-gym use.
+
+Minimalist UI: dark mode, clean fonts, intuitive hierarchy.
+
+Two-tap logging: fastest path to adding a set.
+
+Rest timer with countdown and optional audio cue.
+
+Technical Architecture
+
+System Components
+
+Frontend: Android app (Kotlin or Flutter)
+
+Backend: None (local only)
+
+Storage: Local database (Room or SQLite)
+
+Data Models
+
+Workout: ID, date, template name, list of exercises.
+
+ExerciseLog: Exercise name, sets (reps, weight), rest times, notes.
+
+Template: Name, exercise list with default reps/sets.
+
+APIs and Integrations
+
+None in MVP
+
+Phase 2+: StrengthLevel integration (read-only benchmarks)
+
+Infrastructure Requirements
+
+Local device storage
+
+Optional notification/alert permissions (for rest timer)
+
+Development Roadmap
+
+MVP Requirements
+
+Workout Logging (UI + logic)
+
+Template Builder
+
+Workout History Viewer
+
+Local Data Persistence
+
+UX Polish: Timers, fast tap entry, visual feedback
+
+Future Enhancements
+
+Progressive overload suggestions
+
+StrengthLevel API integration
+
+Data export (CSV/JSON)
+
+Cloud sync and user accounts (optional)
+
+Logical Dependency Chain
+
+Local database setup — foundational to all features.
+
+Exercise model + logging UI — establish core interaction.
+
+Template system — enables reusable workouts.
+
+History viewer — enables review of past sessions.
+
+UX refinements — polish for daily usability.
+
+Phase 2+ additions — build on stable core with analytics/export.
+
+Risks and Mitigations
+
+Technical Challenges
+
+Offline reliability → Use robust local DB (Room or SQLite).
+
+Performance for frequent writes → Optimize insert queries.
+
+MVP Scope Definition
+
+Clear MVP definition prevents overreach → Stay lean with Phase 1.
+
+Resource Constraints
+
+Focus on atomic, testable components → Prioritize modular design.
+
+Appendix
+
+Example Template: Upper Body
+
+Incline Bench Press
+
+Pull-Ups
+
+Dumbbell Rows
+
+Dumbbell Flyes
+
+Cable Lateral Raises
+
+Bayesian Cable Curls
+
+Dumbbell Triceps Extensions
+
+Research Reference
+
+https://strengthlevel.com/ for future benchmark integration
+
+Periodization theory for progressive overload planning (Phase 2+)
+

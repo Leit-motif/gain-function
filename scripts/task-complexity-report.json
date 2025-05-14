@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "generatedAt": "2025-05-12T23:36:56.600Z",
+    "tasksAnalyzed": 13,
+    "thresholdScore": 5,
+    "projectName": "Taskmaster",
+    "usedResearch": true
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Project Setup and Database Initialization (Room)",
+      "complexityScore": 3,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the 'Project Setup and Database Initialization' task into subtasks covering Gradle configuration for Room/Coroutines/ViewModel, creation of the abstract AppDatabase class, and defining the initial project module structure.",
+      "reasoning": "Standard setup involving dependency management and boilerplate Room configuration. Low complexity as it follows established patterns."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Define Core Data Models (Entities & DAOs)",
+      "complexityScore": 5,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Expand the 'Define Core Data Models' task into subtasks, creating one subtask for each Entity-DAO pair: Workout, ExerciseLog, SetEntry, Template, and TemplateExercise. Each subtask should include defining the @Entity data class and the corresponding @Dao interface with necessary CRUD and query methods using suspend functions.",
+      "reasoning": "Involves defining multiple related data structures and their access methods. Requires careful handling of annotations, relationships (foreign keys), and asynchronous operations."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Implement Exercise Management System",
+      "complexityScore": 4,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the 'Implement Exercise Management System' task into subtasks covering: 1. Defining the ExerciseDefinition entity and DAO. 2. Implementing the RoomDatabase.Callback to preload default exercises. 3. Creating the UI (dialog or screen) for adding custom exercises. 4. Implementing the logic to save user-added custom exercises.",
+      "reasoning": "Combines database work (new entity, pre-population logic using Callback) with a simple UI interaction for adding custom data."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Workout Template Creation and Editing UI & Logic",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Expand the 'Workout Template Creation and Editing UI & Logic' task into subtasks covering: 1. UI for listing existing templates. 2. UI for the template creation/editing screen (name input, exercise list). 3. UI and logic for the exercise picker. 4. Logic to add/remove exercises within the template editor. 5. Logic to save or update the Template and its TemplateExercises. 6. Logic to handle template deletion.",
+      "reasoning": "High complexity due to significant UI work (multiple RecyclerViews, pickers), complex state management (create vs. edit), and handling nested data structures (Template -> TemplateExercise)."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Workout Session Initiation UI & Logic",
+      "complexityScore": 5,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the 'Workout Session Initiation UI & Logic' task into subtasks covering: 1. Creating the UI for selecting between a template or manual workout. 2. Implementing the logic to create a Workout and pre-populate ExerciseLogs when a template is chosen. 3. Implementing the logic to create a blank Workout for a manual session. 4. Handling navigation to the active workout screen with the correct workoutId.",
+      "reasoning": "Involves UI for user choice, conditional backend logic based on that choice (template vs. manual), database interactions, and screen navigation."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Active Workout Logging UI & Core Logic",
+      "complexityScore": 8,
+      "recommendedSubtasks": 7,
+      "expansionPrompt": "Expand the 'Active Workout Logging UI & Core Logic' task into subtasks covering: 1. Designing the main layout for the logging screen. 2. Displaying current exercise info (name, target sets/reps). 3. Implementing input fields for reps/weight and the 'Log Set' button action. 4. Implementing the logic to create and save SetEntry records. 5. Handling input and saving of ExerciseLog notes. 6. Implementing navigation (next/previous exercise). 7. Implementing the ability to add new exercises during a manual workout.",
+      "reasoning": "Core application feature with complex UI state management (current exercise/set), frequent database writes (per set), user input handling, and navigation within the workout context."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Implement Rest Timer with Countdown and Audio Cue",
+      "complexityScore": 5,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the 'Implement Rest Timer' task into subtasks covering: 1. Implementing the UI elements for timer display and progress. 2. Integrating CountDownTimer logic for countdown functionality. 3. Triggering the timer automatically after a set is logged. 4. Implementing audio cue playback on timer completion (including resource handling). 5. Adding pause and reset controls for the timer.",
+      "reasoning": "Requires integrating Android framework components (Timer, MediaPlayer/SoundPool), managing time-based UI updates, handling audio resources, and timer state management."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Workout Completion and Auto-Save Logic",
+      "complexityScore": 3,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Expand the 'Workout Completion and Auto-Save Logic' task into subtasks covering: 1. Adding a 'Finish Workout' button to the active workout UI. 2. Implementing the logic triggered by the button to update the Workout entity's state (e.g., set completion flag/timestamp). 3. Handling navigation away from the active workout screen upon completion.",
+      "reasoning": "Relatively simple logic involving a UI trigger, a database update to mark completion, and navigation. Assumes progressive saving is handled elsewhere."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Workout History List UI",
+      "complexityScore": 4,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the 'Workout History List UI' task into subtasks covering: 1. Setting up the RecyclerView and implementing its Adapter/ViewHolder. 2. Designing the layout for individual history list items. 3. Implementing the ViewModel and Repository logic to fetch and observe the list of completed workouts from Room. 4. Handling click events on list items to navigate to the detail view.",
+      "reasoning": "Standard Android pattern (RecyclerView with Room data). Requires implementing adapter, view holder, layout, data fetching, and navigation logic."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Workout History Detail View UI",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Expand the 'Workout History Detail View UI' task into subtasks covering: 1. Designing the overall layout for the detail screen. 2. Fetching and displaying the main Workout details (date, notes, etc.). 3. Implementing the display of the list of ExerciseLogs associated with the workout. 4. Implementing the display of SetEntries (reps, weight, etc.) for each ExerciseLog, potentially using nested views or adapters.",
+      "reasoning": "Displaying hierarchical data (Workout -> Logs -> Sets) requires careful layout design and potentially complex adapters or dynamic view generation. Data fetching involves related entities."
+    },
+    {
+      "taskId": 11,
+      "taskTitle": "Basic UI/UX Styling: Dark Mode and Minimalist Theme",
+      "complexityScore": 5,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the 'Basic UI/UX Styling' task into subtasks covering: 1. Defining color palettes in `colors.xml` for both light and dark themes. 2. Defining a type scale and applying fonts in `themes.xml` or styles. 3. Applying the defined themes and styles consistently to major UI components and layouts. 4. Implementing the logic for automatic dark mode switching based on system settings. 5. Performing a visual review pass across all screens in both modes to ensure consistency and fix issues.",
+      "reasoning": "Affects the entire application visually. Requires defining resources (colors, styles, themes) and ensuring consistency across all screens and modes through testing."
+    },
+    {
+      "taskId": 12,
+      "taskTitle": "Implement \"Two-Tap\" Set Logging and Visual Feedback",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Expand the 'Implement \"Two-Tap\" Set Logging and Visual Feedback' task into subtasks covering: 1. Analyzing the current set logging flow to identify potential 'two-tap' scenarios. 2. Implementing logic to pre-fill input fields based on previous sets or defaults. 3. Modifying the UI interaction on the logging screen to facilitate faster logging. 4. Adding visual feedback (e.g., animations, confirmations) for logging actions. 5. Planning and executing usability tests to validate the effectiveness of the changes.",
+      "reasoning": "Involves UX optimization, potentially complex logic for pre-filling, UI refinement of a core interaction, and crucial usability testing."
+    },
+    {
+      "taskId": 13,
+      "taskTitle": "Database Performance Optimization and Reliability Testing",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Expand the 'Database Performance Optimization and Reliability Testing' task into subtasks covering: 1. Reviewing all DAO queries, identifying potential bottlenecks, and adding necessary database indices. 2. Using profiling tools to measure database performance during typical and heavy usage scenarios. 3. Ensuring all database operations strictly occur on background threads (e.g., using appropriate Coroutine Dispatchers). 4. Designing and executing test cases to verify data integrity and app behavior during offline scenarios and simulated crashes. 5. Designing and executing stress tests involving large amounts of data.",
+      "reasoning": "Requires performance analysis (profiling, indexing), ensuring correct threading for DB operations, and designing non-trivial test cases for reliability and stress scenarios."
+    }
+  ]
+}
