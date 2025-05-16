@@ -40,12 +40,13 @@ data class TemplateExerciseEntry(
     /**
      * Default number of reps for this exercise
      */
-    val defaultReps: Int = 10,
+    val defaultReps: Int = 8,
     
     /**
      * Default weight for this exercise (in whatever unit the user prefers)
+     * This is a required field.
      */
-    val defaultWeight: Double? = null,
+    val defaultWeight: Double = 0.0,
     
     /**
      * Order of this exercise in the template (for display purposes)
